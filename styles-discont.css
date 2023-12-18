@@ -1,0 +1,81 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+}
+.form__label {
+  margin-bottom: 3px;
+  font-weight: 700;
+}
+.form__input {
+  background-color: rgba(0, 0, 0, 0.16);
+  padding: 5px;
+  border-radius: 9px;
+  border: 3px solid black;
+}
+.form__input--terms {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.form__input--terms:checked {
+  background-color: #4CAF50; /* Background color when checked */
+  border-color: #4CAF50; /* Border color when checked */
+  color: #fff; /* Text color when checked */
+}
+.form__check {
+  margin-top: 20px;
+  margin-bottom: 3px;
+  display: flex;
+  flex-direction: column;
+}
+.form__check--terms {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn {
+  background-color: blue;
+  color: white;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: large;
+  font-weight: 700;
+}
+.btn:hover {
+  background-color: black;
+}
+.btn--submit {
+  background-color: green;
+}
+.btn--clear {
+  background-color: red;
+}
+
+.errorMessage {
+  text-align: center;
+  color: red;
+  background-color: rgba(0, 0, 0, 0.296);
+  border: 3px solid red;
+  padding: 5px 0;
+}/*# sourceMappingURL=styles-discont.css.map */

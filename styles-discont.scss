@@ -1,0 +1,88 @@
+input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+
+h1 {
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+
+    &__label {
+        
+        margin-bottom: 3px;
+        font-weight: 700;
+    }
+
+    &__input {
+        background-color: rgba(0, 0, 0, 0.16);
+        padding: 5px;
+        border-radius: 9px;
+        border: 3px solid black;
+
+        &--terms {
+            appearance: none;
+            width: 20px; 
+            height: 20px; 
+            border: 2px solid #333; 
+            border-radius: 4px; 
+            margin-right: 8px; 
+            cursor: pointer; 
+
+            &:checked {
+                background-color: #4CAF50; /* Background color when checked */
+                border-color: #4CAF50; /* Border color when checked */
+                color: #fff; /* Text color when checked */
+            }
+        }
+    }
+
+    &__check {
+        margin-top: 20px;
+        margin-bottom: 3px;
+        display: flex;
+        flex-direction: column;
+
+        &--terms {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
+
+.btn {
+    background-color: blue;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: large;
+    font-weight: 700;
+
+    &:hover {
+        background-color: black;
+    }
+
+    &--submit {
+        background-color: green;
+    }
+
+    &--clear {
+        background-color: red;
+    }
+}
+
+.errorMessage {
+    text-align: center;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.296);
+    border: 3px solid red;
+    padding: 5px 0;
+}
