@@ -42,7 +42,7 @@ const methods = {
         error(id, "Invalid email address. Please enter a valid email address and try again.");
       }
     },
-  //todo:
+  //todo: all formats
     isValidDate(id, dateString) {
       // Check if the input is a valid date string in the format dd:mm:yyyy
       const regex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;

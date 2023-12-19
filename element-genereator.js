@@ -25,16 +25,18 @@ class Form {
         myInputField.displayInputField();
     }
 
-    displayElement(id, style, labelText) {
+    displayElement(id, style) {
         const inputField = document.createElement("div");
-        inputField.classList.add("inputField");
+        style.slice(1).forEach(className => {
+            inputField.classList.add(className);
+          });
 
         const inputElement = document.createElement("input");
         inputElement.type = "text";
         inputElement.required = true;
 
         const labelElement = document.createElement("span");
-        labelElement.textContent = labelText;
+        labelElement.textContent = style[0];
 
         inputField.appendChild(inputElement);
         inputField.appendChild(labelElement);
@@ -72,13 +74,13 @@ class InputField extends Form {
     }
 }
 
-const myInputField = new InputField("name", "Name", ["inputField"], { customMethod: () => console.log("Custom method executed") });
+
 
 myInputField.displayInputField("phone", "lastName");
 myInputField.displayInputField("phone", "phone");
 
 
-
+const myInputField = new InputField("name", "Name", ["inputField"], { customMethod: () => console.log("Custom method executed") });
 // Benis code
 // const myForm = new Form(config);
 
@@ -148,3 +150,4 @@ myInputField.displayInputField("phone", "phone");
 // }
 
 // let element = new Element();
+
