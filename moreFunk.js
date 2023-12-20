@@ -14,6 +14,8 @@ function getAtlas(key) {
         if (serializedObj !== null) {
             const obj = JSON.parse(serializedObj);
             console.log(`Object retrieved with key '${key}' from session storage.`);
+            console.log(obj);
+            window.atlas = obj;
             return obj;
         } else {
             console.log(`No object found with key '${key}' in session storage.`);
@@ -24,7 +26,10 @@ function getAtlas(key) {
         return null;
     }
 }
-
+// let stageIds = ["name", "addressLine1", "mail" ,"phone"]
+// initializeAtlas();
+// getAtlas('atlas');
+// displayForm(stageIds);
 function displayForm(stageIds){
     for (const key of stageIds) {
         displayElement(key, atlas[key].styles);
@@ -71,4 +76,21 @@ function delMethod(key, methodKey) {
       delete atlas[key].methods[methodKey];
     }
   }
+
+function nextStage() {
+let currentStage = sessionStorage.getItem('stage') || 0;
+currentStage++;
+sessionStorage.setItem('stage', currentStage);
+}
+
+function addId(id){
+    stageIds.push(id)
+ }
+
+function delId(id) {
+    // stageIds.slice(id)
+    const index = stageIds.indexOf(id);
+    const x = stageIds.splice(index, 1);
+
+}
   

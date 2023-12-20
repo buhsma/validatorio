@@ -1,4 +1,5 @@
-const atlas = {
+function initializeAtlas() {
+const atlasConfig = {
     name: {
       styles: ["Name:", "inputField"],
       methods: [
@@ -92,8 +93,11 @@ const atlas = {
       ],
     },
   };
-  
 
+  const atlas = JSON.stringify(atlasConfig);
+  sessionStorage.setItem('atlas', atlas);
+  console.log('Atlas initialized in sessionStorage.');
+};
 // for (const key in atlas) {
 //     displayElement(id, style, labelText) {
 //         const inputField = document.createElement("div");

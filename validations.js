@@ -1,6 +1,6 @@
 
 
-const methods = {
+const method = {
     hasInput(id, value) {
       if (value) {
         placeholder(id);
@@ -79,4 +79,43 @@ const methods = {
     },
     
 
+}
+// function forBeni(event) {
+//   event.preventDefault()
+//   let name = document.getElementById("name").value;
+//   if (name) {
+//     console.log("passed")
+    
+//   }
+//   else{
+//     alert('badbad')
+//   }
+// }
+
+// function forBeni(event) {
+//   // Prevent the default form submission behavior
+//   event.preventDefault();
+
+//   // Retrieve the value of the "name" input field
+//   let name = document.getElementById("name").value;
+
+//   // Check if the name is not empty
+//   if (name) {
+//     // Log a message if the name is not empty
+//     console.log("passed");
+//   } else {
+//     // Show an alert if the name is empty
+//     alert('badbad');
+//   }
+// }
+
+function forBeni() {
+  let name = document.getElementById("name").value;
+  if (name) {
+    console.log("passed");
+    return true;  // Allow form submission
+  } else {
+    alert('badbad');
+    return false; // Prevent form submission
+  }
 }

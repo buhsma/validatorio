@@ -6,12 +6,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles-discont.css">
     <script src="main.js" defer></script>
+    <script src="validations.js" defer></script>
 </head>
 <body>
     <main>
         <h1>Title</h1>
 
-        <form action="display.html" class="form" onsubmit="validateForm()" method="post">
+        <form action="" class="form" onsubmit="return forBeni()" method="post" id="myForm">
 
             <label for="address" class="form__label">Form of address:</label>
             <select id="address" name="address" class="form__dropDown">
