@@ -45,6 +45,7 @@ function displayForm(stageIds){
         const inputElement = document.createElement("input");
         inputElement.type = "text";
         inputElement.required = true;
+        inputElement.id = [id];
       
         const labelElement = document.createElement("span");
         labelElement.textContent = styles[0];
@@ -93,4 +94,3 @@ function delId(id) {
     const x = stageIds.splice(index, 1);
 
 }
-  

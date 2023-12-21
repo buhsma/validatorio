@@ -1,0 +1,6 @@
+finish logig => gameloop(satgesystem, validator, events)
+game structur => stages, some design, some events.
+
+oop
+
+finish game

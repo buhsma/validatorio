@@ -27,13 +27,47 @@
 
 // {john} [doe]
 // @mixin scss with ids
-let validated = false;
+// let validated = false;
 let stageIds = []
 sessionStorage.setItem("stage", 0);
 initializeAtlas();
 gameLoop()
 
+function isValid() {
+   
+}
 
+function validator(callback) {
+    if (valiDat()) {
+
+    // Simulating asynchronous validation (replace with actual async logic)
+    setTimeout(() => {
+      const isValid = true;
+      
+      if (isValid) {
+        callback(true); // Validation successful
+      } else {
+        callback(false); // Validation failed
+      }
+    }, 1000); // Simulating a delay, e.g., for an async operation
+  }
+}
+  // Example usage
+  function handleValidationResult(isValid) {
+    if (isValid) {
+      console.log('Validation successful! Proceed to the next step.');
+      // Call the next function or perform the next step in your workflow
+    } else {
+      console.log('Validation failed. Please correct the input and try again.');
+      // Display an error message or prompt the user to correct the input
+    }
+  }
+  
+  // Trigger validation on button press
+  const submitButton = document.getElementById('test');
+  submitButton.addEventListener('click', function () {
+    validator(handleValidationResult);
+  });
     
 
 // initializeAtlas();
@@ -42,7 +76,7 @@ function stageLoop(){
     getAtlas('atlas');
     // manipulate(atlas)
     displayForm(stageIds);
-    if(validated) {
+    if(isValid()) {
         saveAtlas(atlas, atlas);
         nextStage();
     }
@@ -69,11 +103,11 @@ function valiDat() {
         return false;
     }
 }
-    
+
 
 
 function gameLoop() {
-    const numIterations = 10;
+    const numIterations = 5;
     for (let i = 0; i < numIterations; i++) {
         const currStage = parseInt(sessionStorage.getItem('stage')) || 0;
         switch (currStage) {
@@ -81,7 +115,7 @@ function gameLoop() {
                 // initializeAtlas();
                 addId('name');
                 stageLoop();
-                
+
                 break;
             case 1:
                 stageLoop();

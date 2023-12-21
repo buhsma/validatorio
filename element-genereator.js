@@ -21,29 +21,29 @@ class Form {
     static counter = 0;
     constructor() {
         // Automatically create an instance of InputField with the specified parameters
-        const myInputField = new InputField("name", this.["stylesarray"], this.{methodarray}, this.getConfig());
+        const myInputField = new InputField(id, styleClasses, methods);
         myInputField.displayInputField();
     }
+}
+//     displayElement(id, style) {
+//         const inputField = document.createElement("div");
+//         style.slice(1).forEach(className => {
+//             inputField.classList.add(className);
+//           });
 
-    displayElement(id, style) {
-        const inputField = document.createElement("div");
-        style.slice(1).forEach(className => {
-            inputField.classList.add(className);
-          });
+//         const inputElement = document.createElement("input");
+//         inputElement.type = "text";
+//         inputElement.required = true;
 
-        const inputElement = document.createElement("input");
-        inputElement.type = "text";
-        inputElement.required = true;
+//         const labelElement = document.createElement("span");
+//         labelElement.textContent = style[0];
 
-        const labelElement = document.createElement("span");
-        labelElement.textContent = style[0];
+//         inputField.appendChild(inputElement);
+//         inputField.appendChild(labelElement);
 
-        inputField.appendChild(inputElement);
-        inputField.appendChild(labelElement);
-
-        document.body.appendChild(inputField);
-    }
-    assemble(id, config) {
+//         document.body.appendChild(inputField);
+//     }
+    function assemble(id, config) {
         const obj = config[id];
 
         if (obj && obj.enabled === true) {
@@ -55,8 +55,7 @@ class Form {
                 }
             }
         }
-    }
-}
+    };
 
 class InputField extends Form {
     constructor(id, label, style = [], methods = {}) {
