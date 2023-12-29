@@ -1,45 +1,65 @@
 
 
 const method = {
-    hasInput(id, value) {
-      if (value) {
+
+    enabled(id, value, input) {
+      if (value)
+      placeholder(id);
+    console.log(id, 'check input: ', input)
+    return true;
+    },
+
+    hasInput(id, value, input) {
+      if (input !== "") {
         placeholder(id);
+        console.log(id, 'check')
+        return true;  
       } 
       else {
         displayError(id, "At least try...");
+        console.log('error')
+        return false;
       }
     },
   
-    minLength(id, value) {
-      const { minLength } = config[id];
+    minLength(id, minLength) {
+      const input = document.getElementById(id).value;
   
-      if (value.length >= minLength) {
+      if (input.length >= minLength) {
         placeholder(id);
+        console.log(id, 'check')
+        return true;
       }
       else {
-        error(id, `Invalid input. Must be minimum ${minLength} characters.`);
+        displayError(id, `Invalid input. Must be minimum ${minLength} characters.`);
+        return false;
       }
     },
   
-    maxLength(id, value) {
-      const { maxLength } = config[id];
+    maxLength(id, maxLength) {
+      const input = document.getElementById(id).value;
   
-      if (value.length <= maxLength) {
+      if (input.length <= maxLength) {
         placeholder(id);
+        console.log(id, 'check', input)
+        return true;
       }
       else {
-        error(id, `Invalid input. Must be maximum ${maxLength} characters.`);
+        displayError(id, `Invalid input. Must be maximum ${maxLength} characters.`);
+        return false;
       }
     },
   
     valiMail(id, value) {
       let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  
-      if (value.match(validRegex)) {
+      const input = document.getElementById(id).value;
+      if (input.match(validRegex)) {
         placeholder(id);
+        return true;
       } 
       else {
-        error(id, "Invalid email address. Please enter a valid email address and try again.");
+        displayError(id, "Invalid email address. Please enter a valid email address and try again.");
+        return false;
       }
     },
   //todo: all formats
@@ -69,45 +89,56 @@ const method = {
       }
     },
 
+    isInteger(id, value) {
+      const input = document.getElementById(id).value;
+      const regex = /^\d+$/;
+      if (regex.test(input)) {
+        placeholder(id);
+        return true;
+      }
+      else {
+        displayError(id, "Invalid input. Must me number 0-9");
+        return false;
+      }
+    },
+
     checked(id, value) {
-        if(value) {
+      const buttonId = atlas[id].config[0];
+      const btn1 = document.getElementById(`${buttonId}1`);
+      const btn2 = document.getElementById(`${buttonId}2`);
+      console.log(`${btn1.value} btn1`)
+      console.log(`${btn2.checked} btn2`)
+      if (btn1.classList.contains("toggled") || btn2.classList.contains("toggled")) {
             placeholder(id);
+            return true;
         }
         else {
-            error(id, "Please accept the terms and conditions before proceeding.");
+            displayError(id, "Please accept the terms and conditions before proceeding.");
+            return false;
         }
     },
     
 
 }
-// function forBeni(event) {
-//   event.preventDefault()
-//   let name = document.getElementById("name").value;
-//   if (name) {
-//     console.log("passed")
-    
-//   }
-//   else{
-//     alert('badbad')
-//   }
-// }
 
-// function forBeni(event) {
-//   // Prevent the default form submission behavior
-//   event.preventDefault();
 
-//   // Retrieve the value of the "name" input field
-//   let name = document.getElementById("name").value;
 
-//   // Check if the name is not empty
-//   if (name) {
-//     // Log a message if the name is not empty
-//     console.log("passed");
-//   } else {
-//     // Show an alert if the name is empty
-//     alert('badbad');
-//   }
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function forBeni() {
   let name = document.getElementById("name").value;

@@ -1,0 +1,276 @@
+.inputField {
+  position: relative;
+  width: 100%;
+}
+.inputField input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: #eeeeee;
+  border-radius: 5px;
+  outline: none;
+  color: rgb(150, 1, 1);
+  font-size: 1.5em;
+  transition: 0.5s;
+  background-image: linear-gradient(#ffffff, #aaaaaa);
+}
+.inputField input:valid + span, .inputField input:focus + span {
+  color: rgb(77, 77, 77);
+  transform: translateX(15px) translateY(-20px);
+  font-size: 1.3em;
+  padding: 0 10px;
+  background: #eeeeee;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  letter-spacing: 0.2em;
+}
+.inputField input:valid, .inputField input:focus {
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 2px 4px, rgba(0, 0, 0, 0.5) 0px 7px 13px -3px, rgba(0, 0, 0, 0.4) 0px -3px 0px inset;
+}
+.inputField span {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1.5em;
+  color: rgba(39, 0, 0, 0.25);
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.btn {
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 8px 12px;
+  width: 30%;
+  min-width: auto;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+.btn__top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  padding: 18px 16px;
+  transform: translateY(0);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.25);
+  transition-property: transform;
+  transition-duration: 0.2s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.btn__top:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  background-image: radial-gradient(#cd3f64, #9d3656);
+  text-align: center;
+  color: #fff;
+  box-shadow: inset 0 0 0px 1px rgba(255, 255, 255, 0.2), 0 1px 2px 1px rgba(255, 255, 255, 0.2);
+  transition-property: border-radius, padding, width, transform;
+  transition-duration: 0.2s;
+}
+.btn:active .btn__top {
+  transform: translateY(6px);
+}
+.btn__top::after:after {
+  border-radius: 6px;
+  padding: 0 2px;
+}
+.btn:active .btn__top::after {
+  border-radius: 6px;
+  padding: 0 2px;
+}
+.btn__bottom {
+  position: absolute;
+  z-index: -1;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 8px/16px 16px 8px 8px;
+  padding-top: 6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 10px);
+  box-sizing: content-box;
+  background-color: #803;
+  background-image: radial-gradient(4px 8px at 4px calc(100% - 8px), rgba(255, 255, 255, 0.25), transparent), radial-gradient(4px 8px at calc(100% - 4px) calc(100% - 8px), rgba(255, 255, 255, 0.25), transparent), radial-gradient(16px at -4px 0, white, transparent), radial-gradient(16px at calc(100% + 4px) 0, white, transparent);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5), inset 0 -1px 3px 3px rgba(0, 0, 0, 0.4);
+  transition-property: border-radius, padding-top;
+  transition-duration: 0.2s;
+}
+.btn:active .btn__bottom {
+  border-radius: 10px 10px 8px 8px/8px;
+  padding-top: 0;
+}
+.btn__base {
+  position: absolute;
+  z-index: -2;
+  top: 4px;
+  left: 0;
+  border-radius: 12px;
+  width: 100%;
+  height: calc(100% - 4px);
+  background-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.75), inset 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+.btn.toggled .btn__top {
+  transform: translateY(6px);
+}
+.btn.toggled .btn__top::after {
+  border-radius: 6px;
+  padding: 0 2px;
+  background-image: radial-gradient(#3fcd54, #468a50);
+}
+.btn.toggled .btn__bottom {
+  border-radius: 10px 10px 8px 8px/8px;
+  padding-top: 0;
+  background-color: rgb(0, 136, 20);
+}
+
+.termsCheckbox,
+.termsCheckbox *,
+.termsCheckbox *::before,
+.termsCheckbox *::after {
+  box-sizing: border-box;
+  font-size: 30px;
+}
+
+.termsCheckbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.termsCheckbox label {
+  display: block;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+.termsCheckbox input {
+  visibility: hidden;
+  display: none;
+}
+.termsCheckbox input:checked ~ .checkbox {
+  transform: rotate(45deg);
+  width: 14px;
+  margin-left: 12px;
+  border-color: #0deb3d;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-radius: 0;
+}
+.termsCheckbox .checkbox {
+  display: block;
+  width: inherit;
+  height: inherit;
+  border: 3px solid #222222;
+  border-radius: 6px;
+  transition: all 0.375s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #333333;
+}
+
+.form {
+  position: relative;
+  width: 50%;
+}
+.form__label {
+  margin-bottom: 3px;
+  font-weight: 700;
+}
+.form__input {
+  background-color: rgba(0, 0, 0, 0.16);
+  padding: 5px;
+  border-radius: 9px;
+  border: 3px solid black;
+}
+.form__input--terms {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.form__input--terms:checked {
+  background-color: #4CAF50; /* Background color when checked */
+  border-color: #4CAF50; /* Border color when checked */
+  color: #fff; /* Text color when checked */
+}
+.form__check {
+  margin-top: 20px;
+  margin-bottom: 3px;
+  display: flex;
+  flex-direction: column;
+}
+.form__check--terms {
+  display: flex;
+  flex-direction: row;
+}
+
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  width: 50%;
+  height: 100px;
+  background-color: #888888;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 2px 4px, rgba(0, 0, 0, 0.7) 0px 7px 13px -3px, rgba(0, 0, 0, 0.6) 0px -3px 0px inset;
+  z-index: 0;
+  padding: 20px 40px;
+  transition: all 0.3s ease-in-out;
+  background-image: linear-gradient(#bbbbbb, #777777);
+}
+.board:focus-within {
+  width: 52%;
+  height: 120px;
+}
+.board:focus-within span input:valid {
+  font-size: 2em;
+}
+
+.toggleButtonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.toggleButtonContainer h2 {
+  margin: auto auto;
+  text-align: center;
+}/*# sourceMappingURL=styles.css.map */

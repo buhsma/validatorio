@@ -1,0 +1,41 @@
+.termsCheckbox,
+.termsCheckbox *,
+.termsCheckbox *::before,
+.termsCheckbox *::after {
+  box-sizing: border-box;
+  font-size: 30px;
+}
+
+.termsCheckbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.termsCheckbox label {
+  display: block;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+.termsCheckbox input {
+  visibility: hidden;
+  display: none;
+}
+.termsCheckbox input:checked ~ .checkbox {
+  transform: rotate(45deg);
+  width: 14px;
+  margin-left: 12px;
+  border-color: #0deb3d;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-radius: 0;
+}
+.termsCheckbox .checkbox {
+  display: block;
+  width: inherit;
+  height: inherit;
+  border: 3px solid #222222;
+  border-radius: 6px;
+  transition: all 0.375s;
+}/*# sourceMappingURL=checkbox.css.map */

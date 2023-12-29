@@ -4,3 +4,14 @@ game structur => stages, some design, some events.
 oop
 
 finish game
+
+
+
+
+getAtlas()
+manipulateAtlas()
+clarScreen()
+displayForm()
+wait for user to press submit button and all inputs to be valid
+saveAtlas()
+nextStage()

@@ -1,55 +1,43 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
-  gap: 30px;
-  background-color: brown;
-}
-
 .inputField {
   position: relative;
-  width: 250px;
+  width: 100%;
 }
 .inputField input {
   width: 100%;
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  background-color: brown;
+  background-color: #eeeeee;
   border-radius: 5px;
   outline: none;
-  color: white;
-  font-size: 1em;
+  color: rgb(150, 1, 1);
+  font-size: 1.5em;
   transition: 0.5s;
+  background-image: linear-gradient(#ffffff, #aaaaaa);
 }
 .inputField input:valid + span, .inputField input:focus + span {
-  color: blue;
-  transform: translateX(10px) translateY(-7px);
-  font-size: 0.65em;
+  color: rgb(77, 77, 77);
+  transform: translateX(15px) translateY(-20px);
+  font-size: 1.3em;
   padding: 0 10px;
-  background: brown;
+  background: #eeeeee;
   border-left: 1px solid black;
   border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   letter-spacing: 0.2em;
 }
 .inputField input:valid, .inputField input:focus {
   border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 2px 4px, rgba(0, 0, 0, 0.5) 0px 7px 13px -3px, rgba(0, 0, 0, 0.4) 0px -3px 0px inset;
 }
 .inputField span {
   position: absolute;
   left: 0;
   padding: 10px;
   pointer-events: none;
-  font-size: 1em;
-  color: rgba(255, 255, 255, 0.25);
+  font-size: 1.5em;
+  color: rgba(39, 0, 0, 0.25);
   text-transform: uppercase;
   transition: 0.5s;
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=inputField.css.map */

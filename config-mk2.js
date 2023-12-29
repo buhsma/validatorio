@@ -1,7 +1,8 @@
 function initializeAtlas() {
 const atlasConfig = {
     name: {
-      styles: ["Name:", "inputField"],
+      type: 'text',
+      styles: ["Name:", "text", "inputField"],
       methods: [
         { enabled: true },
         { hasInput: true },
@@ -10,7 +11,8 @@ const atlasConfig = {
       ],
     },
     lastName: {
-      styles: ["Last Name:", "inputField"],
+      type: 'text',
+      styles: ["Last Name:", "text", "inputField"],
       methods: [
         { enabled: true },
         { hasInput: true },
@@ -19,7 +21,8 @@ const atlasConfig = {
       ],
     },
     mail: {
-      styles: ["E-Mail:", "inputField"],
+      type: 'text',
+      styles: ["E-Mail:", "text", "inputField"],
       methods: [
         { enabled: true },
         { hasInput: true },
@@ -27,7 +30,8 @@ const atlasConfig = {
       ],
     },
     bDay: {
-      styles: ["Birthday:", "inputField"],
+      type: 'text',
+      styles: ["Birthday:", "text", "inputField"],
       methods: [
         { enabled: true },
         { hasInput: true },
@@ -35,7 +39,8 @@ const atlasConfig = {
       ],
     },
     addressLine1: {
-      styles: ["Address Line 1:", "inputField"],
+      type: 'text',
+      styles: ["Address Line 1:", "text", "inputField"],
       methods: [
         { enabled: true },
         { hasInput: true },
@@ -44,13 +49,15 @@ const atlasConfig = {
       ],
     },
     addressLine2: {
-      styles: ["Address Line 2:", "inputField"],
+      type: 'text',
+      styles: ["Address Line 2:", "text", "inputField"],
       methods: [
         { enabled: true }
       ],
     },
     city: {
-      styles: ["City:", "inputField"],
+      type: 'text',
+      styles: ["City:", "text", "inputField"],
       methods: [
         { enabled: true },
         { hasInput: true },
@@ -59,7 +66,8 @@ const atlasConfig = {
       ],
     },
     plz: {
-      styles: ["ZIP Code:", "inputField"],
+      type: 'text',
+      styles: ["ZIP Code:", "text", "inputField"],
       methods: [
         { enabled: true },
         { hasInput: true },
@@ -70,13 +78,15 @@ const atlasConfig = {
       ],
     },
     phone: {
-      styles: ["Phone:", "inputField"],
+      type: 'text',
+      styles: ["Phone:", "text", "inputField"],
       methods: [
         { enabled: true }
       ],
     },
     mobile: {
-      styles: ["Mobile:", "inputField"],
+      type: 'text',
+      styles: ["Mobile:", "text", "inputField"],
       methods: [
         { enabled: true },
         { hasInput: true },
@@ -85,8 +95,39 @@ const atlasConfig = {
         { isInteger: true }
       ],
     },
+
+
+
+
+
+    
     terms: {
-      styles: ["Terms:", "inputField"],
+      type: 'terms',
+      styles: ["Terms:", "checkbox", "inputField"],
+      methods: [
+        { enabled: true },
+        { checked: true }
+      ],
+    },
+    newsletter: {
+      type: 'toggle',
+      styles: ["Newsletter:", "radio", "form__input--terms"],
+      methods: [
+        { enabled: true },
+        { checked: true }
+      ],
+    },
+    dailyToggle: {
+      type: 'toggle',
+      config: ['toggleDayly', 'YEAH Please', 'Please NO', 'Dayly Newsletter'],
+      methods: [
+        { enabled: true },
+        { checked: true }
+      ],
+    },
+    weeklyToggle: {
+      type: 'toggle',
+      config: ['toggleWeekly', 'YAYA', 'NONO', 'Weekly Newsletter'],
       methods: [
         { enabled: true },
         { checked: true }
@@ -98,21 +139,4 @@ const atlasConfig = {
   sessionStorage.setItem('atlas', atlas);
   console.log('Atlas initialized in sessionStorage.');
 };
-// for (const key in atlas) {
-//     displayElement(id, style, labelText) {
-//         const inputField = document.createElement("div");
-//         inputField.classList.add("inputField");
 
-//         const inputElement = document.createElement("input");
-//         inputElement.type = "text";
-//         inputElement.required = true;
-
-//         const labelElement = document.createElement("span");
-//         labelElement.textContent = labelText;
-
-//         inputField.appendChild(inputElement);
-//         inputField.appendChild(labelElement);
-
-//         document.body.appendChild(inputField);
-//     }
-//   }

@@ -30,33 +30,121 @@ function getAtlas(key) {
 // initializeAtlas();
 // getAtlas('atlas');
 // displayForm(stageIds);
-function displayForm(stageIds){
-    for (const key of stageIds) {
-        displayElement(key, atlas[key].styles);
-      }
-      
-      function displayElement(id, styles) {
-        const inputField = document.createElement("div");
-      
-        styles.slice(1).forEach(className => {
-          inputField.classList.add(className);
-        });
-      
-        const inputElement = document.createElement("input");
-        inputElement.type = "text";
-        inputElement.required = true;
-        inputElement.id = [id];
-      
-        const labelElement = document.createElement("span");
-        labelElement.textContent = styles[0];
-      
-        inputField.appendChild(inputElement);
-        inputField.appendChild(labelElement);
-    
-        document.body.appendChild(inputField)
-    }
-}
 
+
+// function displayElement(key, styles) {
+// const inputField = document.createElement("div");
+
+// styles.slice(2).forEach(className => {
+//     inputField.classList.add(className);
+// });
+
+// const inputType = styles[1];
+
+// const inputElement = document.createElement("input");
+// inputElement.type = inputType;
+// inputElement.required = true;
+// inputElement.id = key;
+
+// const labelElement = document.createElement("span");
+// labelElement.textContent = styles[0];
+
+// const displayBox = document.createElement("div");
+// displayBox.classList.add("displayBox");
+
+// inputField.appendChild(inputElement);
+
+// if (inputType === "radio") {
+//     // Create two radio buttons
+//     for (let i = 1; i <= 2; i++) {
+//         const radioElement = document.createElement("input");
+//         radioElement.type = "radio";
+//         radioElement.name = `${key}_radio`;
+//         radioElement.value = `Option ${i}`;
+//         radioElement.id = `${key}_radio_${i}`;
+
+//         const radioLabelElement = document.createElement("label");
+//         radioLabelElement.textContent = `Option ${i}`;
+//         radioLabelElement.setAttribute("for", `${key}_radio_${i}`);
+
+//         inputField.appendChild(radioElement);
+//         inputField.appendChild(radioLabelElement);
+//     }
+// }
+
+// inputField.appendChild(labelElement);
+// inputField.appendChild(displayBox);
+
+// document.body.appendChild(inputField);
+
+
+// }
+    
+    
+    
+    //   function displayElement(key, styles) {
+    //     const inputField = document.createElement("div");
+      
+    //     styles.slice(2).forEach(className => {
+    //       inputField.classList.add(className);
+    //     });
+      
+    //     const inputElement = document.createElement("input");
+    //     inputElement.type = styles[1];
+    //     inputElement.required = true;
+    //     inputElement.id = key;
+
+      
+    //     const labelElement = document.createElement("span");
+    //     labelElement.textContent = styles[0];
+
+    //     const displayBox = document.createElement("div");
+    //     displayBox.classList.add("displayBox"); // Add the class 'displayBox' to the new div
+      
+    //     inputField.appendChild(inputElement);
+    //     console.log(styles[1])
+    //     if (styles[1] === "radio") {
+    //         inputField.appendChild(inputElement);
+    //     }
+    //     inputField.appendChild(labelElement);
+    //     inputField.appendChild(displayBox); // Append the new 'displayBox' div inside the 'inputField'
+    
+    //     document.body.appendChild(inputField)
+    // }
+    // // Create a button element
+    // const button = document.createElement('button');
+
+    // // Set the button's id attribute
+    // button.id = 'test';
+
+    // // Set the button's text content
+    // button.textContent = 'test';
+
+    // // Add an event listener to the button for the click event
+    // button.addEventListener('click', gameLoop);
+
+    // // Append the button to the document body or another desired element
+    // document.body.appendChild(button);
+    //     }
+
+// function createInputElement(styles) {
+//     const inputType = styles[1]; // Assuming the input type is specified in the second position of the styles array
+//     let inputElement;
+
+//     switch (inputType) {
+//         case 'text':
+//             inputElement = document.createElement("input");
+//             inputElement.type = "text";
+//             break;
+//         case 'radio':
+//             inputElement = document.createElement("input");
+//             inputElement.type = "radio";
+//             break;
+//         case 'checkbox':
+//             inputElement = document.createElement("input");
+//             inputElement.type = "checkbox";
+//             break;
+//     }};
 function addStyle(key, newStyle) {
     atlas[key].styles.push(newStyle);
 }
@@ -93,4 +181,20 @@ function delId(id) {
     const index = stageIds.indexOf(id);
     const x = stageIds.splice(index, 1);
 
+}
+
+function placeholder() {
+    
+}
+
+// function error(id, error) {
+//     console.log(id, message)
+// }
+function clearScreen() {
+    const body = document.body;
+
+    // Remove all child elements from the body
+    while (body.firstChild) {
+        body.removeChild(body.firstChild);
+    }
 }

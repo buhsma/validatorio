@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.displayBoard {
+  margin: 100px;
+  background-color: grey;
+  width: 50%;
+  height: 200px;
+}
+
+.bolt {
+  width: 20px;
+  height: 80px;
+  background-color: #666;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}/*# sourceMappingURL=test.css.map */
