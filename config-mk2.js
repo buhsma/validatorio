@@ -1,5 +1,5 @@
 function initializeAtlas() {
-const atlasConfig = {
+const atlasConfig = {    //username/nickname
     name: {
       type: 'text',
       styles: ["Name:", "text", "inputField"],
@@ -100,7 +100,7 @@ const atlasConfig = {
 
 
 
-    
+
     terms: {
       type: 'terms',
       styles: ["Terms:", "checkbox", "inputField"],
@@ -109,9 +109,9 @@ const atlasConfig = {
         { checked: true }
       ],
     },
-    newsletter: {
+    blankToggle: {
       type: 'toggle',
-      styles: ["Newsletter:", "radio", "form__input--terms"],
+      config: ["blankToggle", "SIGN UP", "LATER", 'Newsletter'],
       methods: [
         { enabled: true },
         { checked: true }
@@ -119,7 +119,7 @@ const atlasConfig = {
     },
     dailyToggle: {
       type: 'toggle',
-      config: ['toggleDayly', 'YEAH Please', 'Please NO', 'Dayly Newsletter'],
+      config: ['dailyToggle', 'YEAH Please', 'Please NO', 'Daily Newsletter'],
       methods: [
         { enabled: true },
         { checked: true }
@@ -127,7 +127,15 @@ const atlasConfig = {
     },
     weeklyToggle: {
       type: 'toggle',
-      config: ['toggleWeekly', 'YAYA', 'NONO', 'Weekly Newsletter'],
+      config: ['weeklyToggle', 'YAYA', 'NONO', 'Weekly Newsletter'],
+      methods: [
+        { enabled: true },
+        { checked: true }
+      ],
+    },
+    monthlyToggle: {
+      type: 'toggle',
+      config: ['monthlyToggle', 'Not agree', 'Agree', 'Monthly Newsletter'],
       methods: [
         { enabled: true },
         { checked: true }

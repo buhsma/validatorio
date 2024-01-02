@@ -103,19 +103,25 @@ const method = {
     },
 
     checked(id, value) {
-      const buttonId = atlas[id].config[0];
-      const btn1 = document.getElementById(`${buttonId}1`);
-      const btn2 = document.getElementById(`${buttonId}2`);
-      console.log(`${btn1.value} btn1`)
-      console.log(`${btn2.checked} btn2`)
-      if (btn1.classList.contains("toggled") || btn2.classList.contains("toggled")) {
-            placeholder(id);
-            return true;
+      if (atlas[id].type == 'toggle') {
+        const buttonId = atlas[id].config[0];
+        const btn1 = document.getElementById(`${buttonId}1`);
+        const btn2 = document.getElementById(`${buttonId}2`);
+        console.log(`${btn1.value} btn1`)
+        console.log(`${btn2.checked} btn2`)
+        if (btn1.classList.contains("toggled") || btn2.classList.contains("toggled")) {
+              placeholder(id);
+              return true;
+          }
+          else {
+              displayError(id, "You have to choose one buddy");
+              return false;
+          }
         }
-        else {
-            displayError(id, "Please accept the terms and conditions before proceeding.");
-            return false;
-        }
+      else {
+        //ckeckbox here does not make much sense
+        placeholder();
+      } 
     },
     
 

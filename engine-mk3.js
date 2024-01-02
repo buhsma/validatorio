@@ -1,8 +1,11 @@
 
-function gameLoop() {
+async function gameLoop() {
     getAtlas('atlas')
     let errorId = '';
     let errorMessage = '';
+    await toggleCheck();
+    
+    
     const isAllTrue = processMethods();
     console.log('return allTrue:', isAllTrue )
     if (isAllTrue) {
@@ -12,12 +15,14 @@ function gameLoop() {
         saveAtlas('atlas', atlas);
         clearScreen();
         displayForm(stageIds);
+        displayHUD()
     }
     else {
         
         console.log('noatallTrue')
         clearScreen();
         displayForm(stageIds);
+        displayHUD();
         
         
         displayStoredError()
@@ -25,8 +30,10 @@ function gameLoop() {
         console.log(errorId)
         console.log(errorMessage)
     }
+    }
     
-}
+    
+
 
 function processMethods() {
     let isAllTrue = true; // Assume all validations are true initially
@@ -58,21 +65,21 @@ function processMethods() {
     
 }
 
+
 function manipulateAtlas() {
     const currStage = parseInt(sessionStorage.getItem('stage')) || 0;
             switch (currStage) {
                 case 1:
                     console.log(`currStage: ${currStage}`)
                     // initializeAtlas();
-                    
-                    addId('terms');
-                    addId('newsletter');
+                    stageIds = ['name', 'lastName', 'blankToggle']
+                    textToType = 'Hello, this is a typing effect in JavasScript!';
                     break;
                 case 2:
                     console.log(`currStage: ${currStage}`)
-                    delId('name')
-                    delId('lastName')
-                    addId('mail');
+                    stageIds = ['plz', 'addressLine1', 'addressLine2', 'blankToggle', 'dailyToggle', 'weeklyToggle', 'monthlyToggle']
+                    textToType = "Hello, this is a typing effect in JavaScript!";
+                 
                     break;
                 case 3:
                     console.log(`currStage: ${currStage}`)
@@ -89,62 +96,13 @@ function manipulateAtlas() {
                 break;
             }
             }
-let storedError = null; // Variable to store the error details
 
-function displayError(errorId, errorMessage) {
-    // Your implementation of displaying the error
-    // For example, you can store the error details in a variable
-    storedError = { errorId, errorMessage };
-}
-            
 
-function displayStoredError() {
-    if (storedError) {
-        // Display the stored error using displayErrorField or any other mechanism
-        displayErrorField(storedError.errorId, storedError.errorMessage);
-        storedError = null; // Reset storedError after displaying it
-    }
-}
-
-function displayErrorField(fieldId, message) {
-    // clearError(fieldId);
-
-    let errorContainer = document.createElement("div");
-    errorContainer.className = "errorMessage";
-    errorContainer.textContent = message;
-
-    let inputField = document.getElementById(fieldId);
-
-    // Find the closest parent div with class "displayBox"
-    let displayBox = inputField.closest('.displayBox');
-
-    if (displayBox) {
-        // Insert the errorContainer after the displayBox
-        displayBox.insertAdjacentElement('afterend', errorContainer);
-    } else {
-        // If there is no "displayBox" div, insert the errorContainer after the inputField
-        inputField.insertAdjacentElement('afterend', errorContainer);
-    }
-}
-            
-
-function clearError(fieldId) {
-    // Remove existing error message if any
-    let existingError = document.querySelector(`#${fieldId} + .errorMessage`);
-    if (existingError) {
-        existingError.remove();
-    }
-}
-let stageIds = ['name', 'dailyToggle', 'weeklyToggle','terms']
-let newsLetterCounter = 0;
-sessionStorage.setItem("stage", 0);
 
 // displayTermsCheckbox()
 // displayToggleButton('toggleDayly', 'YEAH Please', 'Please NO', 'Dayly Newsletter');
 // displayToggleButton('toggleWeekly', 'YAYA', 'NONO', 'Weekly Newsletter');
-initializeAtlas();
-getAtlas('atlas');
-displayForm(stageIds);
+
 // let errorId = 'name';
 
 // let errorMessage =`Invalid input. Must be minimum ${minLength} characters.`;
@@ -176,3 +134,18 @@ function toggleButtons(toggledButtonId, otherButtonId) {
     toggledButton.classList.toggle('toggled');
     otherButton.classList.remove('toggled');
 }
+
+
+
+
+ 
+
+
+let stageIds = ['name']
+let newsLetterCounter = 0;
+sessionStorage.setItem("stage", 0);
+let textToType = 'Hello, let`s start with your name.';
+initializeAtlas();
+getAtlas('atlas');
+displayForm(stageIds);
+displayHUD();

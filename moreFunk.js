@@ -26,125 +26,7 @@ function getAtlas(key) {
         return null;
     }
 }
-// let stageIds = ["name", "addressLine1", "mail" ,"phone"]
-// initializeAtlas();
-// getAtlas('atlas');
-// displayForm(stageIds);
 
-
-// function displayElement(key, styles) {
-// const inputField = document.createElement("div");
-
-// styles.slice(2).forEach(className => {
-//     inputField.classList.add(className);
-// });
-
-// const inputType = styles[1];
-
-// const inputElement = document.createElement("input");
-// inputElement.type = inputType;
-// inputElement.required = true;
-// inputElement.id = key;
-
-// const labelElement = document.createElement("span");
-// labelElement.textContent = styles[0];
-
-// const displayBox = document.createElement("div");
-// displayBox.classList.add("displayBox");
-
-// inputField.appendChild(inputElement);
-
-// if (inputType === "radio") {
-//     // Create two radio buttons
-//     for (let i = 1; i <= 2; i++) {
-//         const radioElement = document.createElement("input");
-//         radioElement.type = "radio";
-//         radioElement.name = `${key}_radio`;
-//         radioElement.value = `Option ${i}`;
-//         radioElement.id = `${key}_radio_${i}`;
-
-//         const radioLabelElement = document.createElement("label");
-//         radioLabelElement.textContent = `Option ${i}`;
-//         radioLabelElement.setAttribute("for", `${key}_radio_${i}`);
-
-//         inputField.appendChild(radioElement);
-//         inputField.appendChild(radioLabelElement);
-//     }
-// }
-
-// inputField.appendChild(labelElement);
-// inputField.appendChild(displayBox);
-
-// document.body.appendChild(inputField);
-
-
-// }
-    
-    
-    
-    //   function displayElement(key, styles) {
-    //     const inputField = document.createElement("div");
-      
-    //     styles.slice(2).forEach(className => {
-    //       inputField.classList.add(className);
-    //     });
-      
-    //     const inputElement = document.createElement("input");
-    //     inputElement.type = styles[1];
-    //     inputElement.required = true;
-    //     inputElement.id = key;
-
-      
-    //     const labelElement = document.createElement("span");
-    //     labelElement.textContent = styles[0];
-
-    //     const displayBox = document.createElement("div");
-    //     displayBox.classList.add("displayBox"); // Add the class 'displayBox' to the new div
-      
-    //     inputField.appendChild(inputElement);
-    //     console.log(styles[1])
-    //     if (styles[1] === "radio") {
-    //         inputField.appendChild(inputElement);
-    //     }
-    //     inputField.appendChild(labelElement);
-    //     inputField.appendChild(displayBox); // Append the new 'displayBox' div inside the 'inputField'
-    
-    //     document.body.appendChild(inputField)
-    // }
-    // // Create a button element
-    // const button = document.createElement('button');
-
-    // // Set the button's id attribute
-    // button.id = 'test';
-
-    // // Set the button's text content
-    // button.textContent = 'test';
-
-    // // Add an event listener to the button for the click event
-    // button.addEventListener('click', gameLoop);
-
-    // // Append the button to the document body or another desired element
-    // document.body.appendChild(button);
-    //     }
-
-// function createInputElement(styles) {
-//     const inputType = styles[1]; // Assuming the input type is specified in the second position of the styles array
-//     let inputElement;
-
-//     switch (inputType) {
-//         case 'text':
-//             inputElement = document.createElement("input");
-//             inputElement.type = "text";
-//             break;
-//         case 'radio':
-//             inputElement = document.createElement("input");
-//             inputElement.type = "radio";
-//             break;
-//         case 'checkbox':
-//             inputElement = document.createElement("input");
-//             inputElement.type = "checkbox";
-//             break;
-//     }};
 function addStyle(key, newStyle) {
     atlas[key].styles.push(newStyle);
 }
@@ -153,9 +35,6 @@ function delStyle(key, styleToDelete) {
     atlas[key]?.styles?.splice(atlas[key]?.styles?.indexOf(styleToDelete), 1);
   }
 
-// function addMethodAtI(key, index, methodKey, value){
-//     atlas[key].method[methodKey] = value
-// }
 function addMethodAtI(key, index, methodKey, value) {
     atlas[key].methods.splice(index, 0, { [methodKey]: value });
 }
@@ -177,7 +56,6 @@ function addId(id){
  }
 
 function delId(id) {
-    // stageIds.slice(id)
     const index = stageIds.indexOf(id);
     const x = stageIds.splice(index, 1);
 
@@ -187,9 +65,6 @@ function placeholder() {
     
 }
 
-// function error(id, error) {
-//     console.log(id, message)
-// }
 function clearScreen() {
     const body = document.body;
 
@@ -198,3 +73,166 @@ function clearScreen() {
         body.removeChild(body.firstChild);
     }
 }
+
+
+// function toggleCheck() {
+//     // Check if any button with "1" in its name has the 'toggled' class
+//     const buttonsWithOne = document.querySelectorAll('[id*="1"]');
+    
+//     for (const button of buttonsWithOne) {
+//         if (button.classList.contains('toggled')) {
+//             newsLetterCounter++
+//             highlight(button);
+//             setTimeout(1000)
+            
+//         }
+//     }
+//   console.log(newsLetterCounter);
+// }    
+function toggleCheck() {
+    // Check if any button with "1" in its name has the 'toggled' class
+    const buttonsWithOne = document.querySelectorAll('[id*="1"]');
+
+    let delay = 0;
+
+    const promises = [];
+
+    for (const button of buttonsWithOne) {
+        if (button.classList.contains('toggled')) {
+            newsLetterCounter++;
+            const promise = new Promise(resolve => {
+                setTimeout(() => {
+                    highlight(button);
+                    setTimeout(() => {
+                        // Code to execute after a delay of 1000 milliseconds (1 second)
+                        // For example, you can remove the 'highlighted' class
+                        button.classList.remove('highlighted');
+                        resolve(); // Resolve the promise when highlighting is complete
+                    }, 1000);
+                }, delay);
+            });
+            promises.push(promise);
+            delay += 1000; // Adjust the delay between buttons (2 seconds in this example)
+        }
+    }
+    if (promises.length === 0) {
+        return Promise.resolve();
+    }
+    // Return a Promise that resolves when all highlighting is complete
+    return Promise.all(promises);
+}
+
+// function highlight(innerDiv) {
+//     let element = innerDiv.closest('.board');
+
+//     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+//     // Apply a scale animation
+//     element.style.transition = 'transform 0.3s ease-in-out';
+//     element.style.transform = 'scale(1.2)'; // You can adjust the scale factor as needed
+// }
+
+function highlight(innerDiv) {
+    console.log(innerDiv)
+    let element = innerDiv.closest('.board');
+    console.log(element)
+    
+    
+    
+    
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    element.classList.add('highlight');
+    console.log(element);
+    // wait(5000);
+    setTimeout(() => {
+        // wait(4000);
+        element.classList.remove('highlight');
+    }, 1000); // Adjust the delay as needed
+}
+
+
+//     // Apply a scale animation and change background color
+//     element.style.transition = 'transform 0.5s ease-in-out, background-color 0.5s ease-in-out';
+//     element.style.transform = 'scale(1.5)';
+//     element.style.backgroundImage = 'linear-gradient(#111111, #777777)';
+//     console.log(element)
+//     // Use setTimeout for a delay before resetting the styles
+//     wait(1500);
+//         // Clear the transition and reset the transform property
+//         element.style.transition = '';
+//         element.style.transform = 'scale(1)';
+//         element.style.backgroundColor = '';
+//         console.log(element)
+// }
+
+
+
+// function toggleCheck() {
+//     // Check if any button with "1" in its name has the 'toggled' class
+//     const buttonsWithOne = document.querySelectorAll('[id*="1"]');
+    
+//     for (const button of buttonsWithOne) {
+//         if (button.classList.contains('toggled')) {
+//             newsLetterCounter++;
+//             button.scrollTo(0, 0);
+            
+//             // Log to check if the function is executed
+//             console.log("Zooming in...");
+
+//             // Zoom in on the toggled element
+//             button.style.transition = 'transform 0.3s ease-in-out';
+//             button.style.transform = 'scale(1.2)'; // You can adjust the scale factor as needed
+
+//             // Listen for the 'transitionend' event to detect when the transition is complete
+//             button.addEventListener('transitionend', function transitionEndHandler() {
+//                 // Remove the event listener to prevent multiple executions
+//                 button.removeEventListener('transitionend', transitionEndHandler);
+
+//                 // Log to check if the animation is complete
+//                 console.log("Zoom animation complete.");
+
+//                 // Clear the transition and reset the transform property
+//                 button.style.transition = '';
+//                 button.style.transform = 'scale(1)';
+//             }, { once: true });
+//         }
+//     }
+// }
+function wait(ms){
+    let start = new Date().getTime();
+    let end = start;
+    while(end < start + ms) {
+      end = new Date().getTime();
+   }
+ }
+
+
+  
+
+
+ function typeMessage() {
+    let index = 0; // Declare index within the closure of typeMessage
+    const speed = 50; // Adjust the speed (in milliseconds) based on your preference
+
+    function typeWriter() {
+        let typedTextElement = document.querySelector('.hudBottom__center__message');
+        
+        console.log('tp running');
+        console.log(textToType);
+        
+        if (index < textToType.length) {
+            typedTextElement.innerHTML += textToType.charAt(index);
+            index++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    // Start the typing effect
+    typeWriter();
+}
+
+// // Start the typing effect when the page loads
+// window.onload = function() {
+//     typeMessage();
+// };
+

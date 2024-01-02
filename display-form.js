@@ -12,14 +12,18 @@ function displayForm(stageIds){
                 break;
             
             case 'toggle':
-                const toggleButtonConfig = atlas[key].config; // Ensure this is an array
-                displayToggleButton(toggleButtonConfig);
+                displayToggleButton(key);
                 break;
                 
         }
-    }
-
         
+    }   
+
+    const counter = document.createElement("div");
+    counter.classList.add("counter");
+    counter.textContent = `${newsLetterCounter} Newsletters subscribed`;
+
+    document.body.appendChild(counter);  
       
 // Create a button element
 const button = document.createElement('button');

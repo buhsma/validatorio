@@ -1,8 +1,8 @@
-function displayToggleButton(arr) {
-    let id = arr[0];
-    let btnText1 = arr[1];
-    let btnText2 = arr[2];
-    let toggleText = arr[3];
+function displayToggleButton(key) {
+    let id = atlas[key].config[0];
+    let btnText1 = atlas[key].config[1];
+    let btnText2 = atlas[key].config[2];
+    let toggleText = atlas[key].config[3];
 
     // Get the container element
     let container = document.createElement('div');
@@ -89,6 +89,8 @@ function displayToggleButton(arr) {
     // Remove the 'toggled' class from the inactive button
     inactiveButton.classList.remove('toggled');
 }
+
+
 
   
 
